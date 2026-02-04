@@ -7,10 +7,44 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
         
+        /* Estilo da Esteira de Logos (Instituições Parceiras) */
+        .top-bank-slider {
+            background: #0a192f; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            padding: 15px 0;
+            white-space: nowrap;
+        }
+        .top-bank-track {
+            display: inline-flex;
+            align-items: center;
+            animation: scroll-top 40s linear infinite;
+        }
+        .top-bank-item {
+            display: flex;
+            align-items: center;
+            margin: 0 40px;
+        }
+        .top-bank-item img {
+            height: 25px; 
+            width: auto;
+            display: block;
+        }
+        .top-bank-item span {
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            margin-left: 10px;
+            letter-spacing: 1px;
+        }
+        @keyframes scroll-top {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
         /* Hero Sofisticado */
         .hero-section {
             background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
@@ -77,6 +111,25 @@
             margin-bottom: 20px;
             font-size: 24px;
         }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -93,6 +146,28 @@
             <a href="https://wa.me/5522999461668?text=Olá! Vim pelo site e quero fazer uma simulação." class="btn btn-outline-dark rounded-pill px-4 d-none d-md-block">Falar com Consultor</a>
         </div>
     </nav>
+
+    <div class="top-bank-slider">
+        <div class="top-bank-track">
+            <div class="top-bank-item"><img src="SANTANDER.png" alt="Santander"></div>
+            <div class="top-bank-item"><img src="DIGIO.png" alt="Digio"></div>
+            <div class="top-bank-item"><img src="Itaú.png" alt="Itaú"></div>
+            <div class="top-bank-item"><img src="AMIGOZ.png" alt="Amigoz"></div>
+            <div class="top-bank-item"><img src="FUTURO.png" alt="Futuro"><span>BANCO FUTURO</span></div>
+            
+            <div class="top-bank-item"><img src="SANTANDER.png" alt="Santander"></div>
+            <div class="top-bank-item"><img src="DIGIO.png" alt="Digio"></div>
+            <div class="top-bank-item"><img src="Itaú.png" alt="Itaú"></div>
+            <div class="top-bank-item"><img src="AMIGOZ.png" alt="Amigoz"></div>
+            <div class="top-bank-item"><img src="FUTURO.png" alt="Futuro"><span>BANCO FUTURO</span></div>
+
+            <div class="top-bank-item"><img src="SANTANDER.png" alt="Santander"></div>
+            <div class="top-bank-item"><img src="DIGIO.png" alt="Digio"></div>
+            <div class="top-bank-item"><img src="Itaú.png" alt="Itaú"></div>
+            <div class="top-bank-item"><img src="AMIGOZ.png" alt="Amigoz"></div>
+            <div class="top-bank-item"><img src="FUTURO.png" alt="Futuro"><span>BANCO FUTURO</span></div>
+        </div>
+    </div>
 
     <header class="hero-section text-white">
         <div class="container">
@@ -188,7 +263,7 @@
         <div class="container text-center py-4">
             <h3 class="mb-5 fw-bold">Atendemos com exclusividade:</h3>
             <div class="row">
-                <div class="col-md-4 mb-4 transition">
+                <div class="col-md-4 mb-4">
                     <img src="https://cdn-icons-png.flaticon.com/512/3077/3077319.png" width="80" alt="INSS">
                     <h5 class="mt-4 fw-bold">Aposentados e Pensionistas</h5>
                 </div>
@@ -206,7 +281,6 @@
 
     <footer style="background-color: #0a192f; color: white; padding: 60px 0; border: none;">
         <div class="container text-center">
-            
             <h4 class="fw-bold mb-4">Consig Online - Consultoria Financeira <span class="text-muted fw-light">ONLINE</span></h4>
             
             <p class="mb-1" style="font-weight: 600;">Anderson Silva Consultoria</p>
@@ -231,13 +305,6 @@
                          data-ad-format="horizontal"
                          data-full-width-responsive="true"></ins>
                     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-                </div>
-            </div>
-
-        </div>
-    </footer>
-       <div class="mt-5 d-flex flex-column align-items-center">
-
                 </div>
             </div>
         </div>
