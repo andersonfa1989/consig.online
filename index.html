@@ -209,35 +209,7 @@
 
             
           <style>
-    /* Estilo para o carrossel de bancos */
-    .bank-slider {
-        overflow: hidden;
-        padding: 20px 0;
-        background: rgba(255, 255, 255, 0.03); /* Fundo levemente diferente para destacar */
-        margin-bottom: 30px;
-    }
-    .bank-track {
-        display: flex;
-        width: calc(250px * 10); /* Ajuste conforme o número de logos */
-        animation: scroll 20s linear infinite;
-    }
-    .bank-track span {
-        width: 200px;
-        color: white;
-        font-weight: bold;
-        font-size: 1.1rem;
-        opacity: 0.6;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-200px * 5)); }
-    }
-<style>
-    /* Configuração da Esteira de Parceiros */
+    <style>
     .bank-slider {
         overflow: hidden;
         padding: 25px 0;
@@ -250,27 +222,22 @@
         align-items: center;
         animation: scroll 30s linear infinite;
     }
-    /* Estilo do Item (Logo + Nome) */
     .bank-item {
         display: flex;
         align-items: center;
-        margin: 0 35px;
-        color: white;
-        text-decoration: none;
+        margin: 0 40px;
     }
     .bank-item img {
-        height: 25px; /* Tamanho da logo pequena */
+        height: 35px; /* Tamanho ajustado conforme sua preferência */
         width: auto;
-        margin-right: 12px;
-        filter: brightness(0) invert(1); /* Mantém branco para elegância */
-        opacity: 0.9;
+        display: block;
     }
     .bank-item span {
+        color: white;
         font-size: 14px;
-        font-weight: 600;
+        font-weight: 700;
+        margin-left: 10px;
         letter-spacing: 1px;
-        text-transform: uppercase;
-        opacity: 0.8;
     }
     @keyframes scroll {
         0% { transform: translateX(0); }
@@ -284,46 +251,23 @@
         <div class="bank-slider">
             <p class="small text-uppercase opacity-50 mb-4" style="letter-spacing: 3px;">Instituições Parceiras</p>
             <div class="bank-track">
-                <div class="bank-item">
-                    <img src="SANTANDER.png" alt="Santander">
-                    <span>SANTANDER</span>
-                </div>
-                <div class="bank-item">
-                    <img src="DIGIO.png" alt="Digio">
-                    <span>DIGIO</span>
-                </div>
-                <div class="bank-item">
-                    <img src="FUTURO.png" alt="Futuro">
-                    <span>BANCO FUTURO</span>
-                </div>
-                <div class="bank-item">
-                    <img src="Itaú.png" alt="Itaú">
-                    <span>ITAÚ</span>
-                </div>
-                <div class="bank-item">
-                    <img src="AMIGOZ.png" alt="Amigoz">
-                    <span>AMIGOZ</span>
-                </div>
+                <div class="bank-item"><img src="SANTANDER.png" alt="Santander"></div>
+                <div class="bank-item"><img src="DIGIO.png" alt="Digio"></div>
+                <div class="bank-item"><img src="Itaú.png" alt="Itaú"></div>
+                <div class="bank-item"><img src="AMIGOZ.png" alt="Amigoz"></div>
                 
                 <div class="bank-item">
-                    <img src="SANTANDER.png" alt="Santander">
-                    <span>SANTANDER</span>
-                </div>
-                <div class="bank-item">
-                    <img src="DIGIO.png" alt="Digio">
-                    <span>DIGIO</span>
-                </div>
-                <div class="bank-item">
                     <img src="FUTURO.png" alt="Futuro">
                     <span>BANCO FUTURO</span>
                 </div>
+
+                <div class="bank-item"><img src="SANTANDER.png" alt="Santander"></div>
+                <div class="bank-item"><img src="DIGIO.png" alt="Digio"></div>
+                <div class="bank-item"><img src="Itaú.png" alt="Itaú"></div>
+                <div class="bank-item"><img src="AMIGOZ.png" alt="Amigoz"></div>
                 <div class="bank-item">
-                    <img src="Itaú.png" alt="Itaú">
-                    <span>ITAÚ</span>
-                </div>
-                <div class="bank-item">
-                    <img src="AMIGOZ.png" alt="Amigoz">
-                    <span>AMIGOZ</span>
+                    <img src="FUTURO.png" alt="Futuro">
+                    <span>BANCO FUTURO</span>
                 </div>
             </div>
         </div>
@@ -342,7 +286,6 @@
         </p>
 
         <div style="display: flex; flex-direction: column; align-items: center;">
-            <span style="font-size: 9px; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;">Publicidade</span>
             <div style="width: 100%; max-width: 728px;">
                 <ins class="adsbygoogle"
                      style="display:inline-block; width:100%; height:90px"
