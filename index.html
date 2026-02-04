@@ -206,20 +206,70 @@
 
     <footer style="background-color: #0a192f; color: white; padding: 60px 0; border: none;">
         <div class="container text-center">
+
             
-            <h4 class="fw-bold mb-4">Consig Online - Consultoria Financeira <span class="text-muted fw-light">ONLINE</span></h4>
-            
-            <p class="mb-1" style="font-weight: 600;">Anderson Silva Consultoria</p>
-            <p class="small mb-1" style="opacity: 0.8;">Atendimento: Segunda a Sexta, das 09h às 18h</p>
-            <p class="small" style="opacity: 0.8;">Contato: (22) 99946-1668</p>
-            
-            <hr class="my-4" style="width: 30%; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.15);">
-            
-            <p style="font-size: 11px; color: #7a8a9e; line-height: 1.6; max-width: 800px; margin: 0 auto 30px auto;">
-                A Consig Online atua como correspondente bancário seguindo as normas da Resolução 3.954 do Banco Central. 
-                Não somos uma instituição financeira e não solicitamos pagamentos antecipados. 
-                As taxas podem variar de acordo com o convênio. Nossas operações são 100% seguras.
-            </p>
+          <style>
+    /* Estilo para o carrossel de bancos */
+    .bank-slider {
+        overflow: hidden;
+        padding: 20px 0;
+        background: rgba(255, 255, 255, 0.03); /* Fundo levemente diferente para destacar */
+        margin-bottom: 30px;
+    }
+    .bank-track {
+        display: flex;
+        width: calc(250px * 10); /* Ajuste conforme o número de logos */
+        animation: scroll 20s linear infinite;
+    }
+    .bank-track span {
+        width: 200px;
+        color: white;
+        font-weight: bold;
+        font-size: 1.1rem;
+        opacity: 0.6;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-200px * 5)); }
+    }
+</style>
+
+<footer style="background-color: #0a192f; color: white; padding: 60px 0; border: none;">
+    <div class="container text-center">
+        
+        <div class="bank-slider">
+            <p class="small text-uppercase opacity-50 mb-3" style="letter-spacing: 2px;">Nossos Parceiros</p>
+            <div class="bank-track">
+                <span>SANTANDER</span>
+                <span>DIGIO</span>
+                <span>BANCO FUTURO</span>
+                <span>ITAÚ</span>
+                <span>AMIGOZ</span>
+                <span>SANTANDER</span>
+                <span>DIGIO</span>
+                <span>BANCO FUTURO</span>
+                <span>ITAÚ</span>
+                <span>AMIGOZ</span>
+            </div>
+        </div>
+
+        <h4 class="fw-bold mb-4">Consig Online - Consultoria Financeira <span class="text-muted fw-light">ONLINE</span></h4>
+        
+        <p class="mb-1" style="font-weight: 600;">Anderson Silva Consultoria</p>
+        <p class="small mb-1" style="opacity: 0.8;">Atendimento: Segunda a Sexta, das 09h às 18h</p>
+        <p class="small" style="opacity: 0.8;">Contato: (22) 99946-1668</p>
+        
+        <hr class="my-4" style="width: 30%; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.15);">
+        
+        <p style="font-size: 11px; color: #7a8a9e; line-height: 1.6; max-width: 800px; margin: 0 auto 30px auto;">
+            A Consig Online atua como correspondente bancário seguindo as normas da Resolução 3.954 do Banco Central. 
+            Não somos uma instituição financeira e não solicitamos pagamentos antecipados. 
+            As taxas podem variar de acordo com o convênio. Nossas operações são 100% seguras.
+        </p>
 
 
        <div class="mt-5 d-flex flex-column align-items-center">
