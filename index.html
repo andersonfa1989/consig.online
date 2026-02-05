@@ -1,765 +1,385 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Consig Online | Consultoria Financeira Premium</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
     <style>
-
         body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
-
         
-
         /* --- ESTILO DA ESTEIRA DE LOGOS --- */
-
         .top-bank-slider {
-
             background: #0a192f; 
-
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
             overflow: hidden;
-
             padding: 15px 0;
-
             white-space: nowrap;
-
         }
-
         .top-bank-track {
-
             display: inline-flex;
-
             align-items: center;
-
             animation: scroll-top 40s linear infinite;
-
         }
-
         .top-bank-item {
-
             display: flex;
-
             align-items: center;
-
             margin: 0 40px;
-
+        }
+        .top-bank-item img {
+            height: 25px; 
+            width: auto;
+            display: block;
         }
 
-        .top-bank-item img {
-
-            height: 25px; 
-
-            width: auto;
-
-            display: block;
-
+        /* Classe para fazer a logo AKI Capital aparecer em branco no fundo escuro */
+        .logo-light {
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
         }
 
         .top-bank-item span {
-
             color: white;
-
             font-size: 13px;
-
             font-weight: 700;
-
             margin-left: 10px;
-
             letter-spacing: 1px;
-
         }
-
         @keyframes scroll-top {
-
             0% { transform: translateX(0); }
-
             100% { transform: translateX(-50%); }
-
         }
-
-
 
         /* --- HERO & GLASS CARD --- */
-
         .hero-section {
-
             background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
-
             padding: 80px 0;
-
             position: relative;
-
         }
-
         .glass-card {
-
             background: rgba(255, 255, 255, 0.08);
-
             backdrop-filter: blur(12px);
-
             border: 1px solid rgba(255, 255, 255, 0.15);
-
             border-radius: 20px;
-
             color: white !important;
-
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-
         }
-
         .text-gradient {
-
             background: linear-gradient(90deg, #ffcc00, #ffae00);
-
             -webkit-background-clip: text;
-
             -webkit-text-fill-color: transparent;
-
             font-weight: 800;
-
         }
-
-
 
         /* --- WHATSAPP & BUTTONS --- */
-
         .btn-premium {
-
             background: linear-gradient(90deg, #25d366, #128c7e);
-
             border: none;
-
             color: white;
-
             transition: all 0.3s ease;
-
             font-weight: 600;
-
             box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
-
         }
-
         .btn-premium:hover {
-
             transform: translateY(-3px);
-
             box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
-
             color: white;
-
         }
-
         .whatsapp-float {
-
             position: fixed;
-
             width: 60px;
-
             height: 60px;
-
             bottom: 40px;
-
             right: 40px;
-
             background-color: #25d366;
-
             color: #FFF;
-
             border-radius: 50px;
-
             text-align: center;
-
             font-size: 30px;
-
             box-shadow: 2px 2px 3px #999;
-
             z-index: 1000;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             text-decoration: none;
-
         }
-
-
 
         /* --- NOVO EFEITO FLIP CARD (VIRAR) --- */
-
         .card-container {
-
             perspective: 1000px;
-
-            height: 280px; /* Altura fixa para os cards */
-
+            height: 280px; 
             cursor: pointer;
-
         }
-
         .card-inner {
-
             position: relative;
-
             width: 100%;
-
             height: 100%;
-
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-
             transform-style: preserve-3d;
-
         }
-
-        /* Classe que será adicionada via JS ao clicar */
-
         .card-container.is-flipped .card-inner {
-
             transform: rotateY(180deg);
-
         }
-
         .card-front, .card-back {
-
             position: absolute;
-
             width: 100%;
-
             height: 100%;
-
             -webkit-backface-visibility: hidden;
-
             backface-visibility: hidden;
-
             border-radius: 15px;
-
             padding: 30px;
-
             border: 1px solid #eee;
-
             background: white;
-
             display: flex;
-
             flex-direction: column;
-
             justify-content: center;
-
         }
-
         .card-back {
-
             background: #fdfdfd;
-
             transform: rotateY(180deg);
-
             border-color: #ffcc00;
-
         }
-
         .card-front:hover {
-
             border-color: #ffcc00;
-
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-
         }
-
         .icon-box {
-
             width: 50px;
-
             height: 50px;
-
             background: #f0f4f8;
-
             color: #0a192f;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             border-radius: 12px;
-
             margin-bottom: 15px;
-
             font-size: 20px;
-
         }
-
         .flip-hint {
-
             font-size: 10px;
-
             color: #aaa;
-
             text-transform: uppercase;
-
             letter-spacing: 1px;
-
             margin-top: 10px;
-
         }
-
     </style>
-
 </head>
-
 <body>
 
-
-
     <a href="https://wa.me/5522999461668?text=Olá! Vim pelo site e quero fazer uma simulação." class="whatsapp-float" target="_blank">
-
         <i class="fab fa-whatsapp"></i>
-
     </a>
 
-
-
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top py-3">
-
         <div class="container">
-
             <a class="navbar-brand fw-bold" href="#">
-
                 <span style="color: #0a192f;">CONSIG</span> <span class="text-muted fw-light">ONLINE</span>
-
             </a>
-
             <a href="https://wa.me/5522999461668?text=Olá! Vim pelo site e quero fazer uma simulação." class="btn btn-outline-dark rounded-pill px-4 d-none d-md-block">Falar com Consultor</a>
-
         </div>
-
     </nav>
 
-
-
-<div class="top-bank-slider">
-
+    <div class="top-bank-slider">
         <div class="top-bank-track">
-
-
-
             <div class="top-bank-item"><img src="FUTURO.png" alt="Futuro"><span>BANCO FUTURO</span></div>  
-
             <div class="top-bank-item"><img src="SANTANDER.png" alt="Santander"></div>
-
+            <div class="top-bank-item"><img src="AKI-CAPITAL.png" alt="Aki Capital" class="logo-light"><span>AKI CAPITAL</span></div>
             <div class="top-bank-item"><img src="AMIGOZ.png" alt="Amigoz"><span>AMIGOZ</span></div>
-
             <div class="top-bank-item"><img src="DIGIO.png" alt="Digio"><span>BANCO DIGIO</span></div>
-
             <div class="top-bank-item"><img src="Itaú.png" alt="Itaú"><span>BANCO ITAÚ</span></div>
-
             
-
             <div class="top-bank-item"><img src="FUTURO.png" alt="Futuro"><span>BANCO FUTURO</span></div>  
-
             <div class="top-bank-item"><img src="SANTANDER.png" alt="Santander"></div>
-
+            <div class="top-bank-item"><img src="AKI-CAPITAL.png" alt="Aki Capital" class="logo-light"><span>AKI CAPITAL</span></div>
             <div class="top-bank-item"><img src="AMIGOZ.png" alt="Amigoz"><span>AMIGOZ</span></div>
-
             <div class="top-bank-item"><img src="DIGIO.png" alt="Digio"><span>BANCO DIGIO</span></div>
-
             <div class="top-bank-item"><img src="Itaú.png" alt="Itaú"><span>BANCO ITAÚ</span></div>
-
-
-
-            <div class="top-bank-item"><img src="FUTURO.png" alt="Futuro"><span>BANCO FUTURO</span></div>  
-
-            <div class="top-bank-item"><img src="SANTANDER.png" alt="Santander"></div>
-
-            <div class="top-bank-item"><img src="AMIGOZ.png" alt="Amigoz"><span>AMIGOZ</span></div>
-
-            <div class="top-bank-item"><img src="DIGIO.png" alt="Digio"><span>BANCO DIGIO</span></div>
-
-            <div class="top-bank-item"><img src="Itaú.png" alt="Itaú"><span>BANCO ITAÚ</span></div>
-
-
-
         </div>
-
     </div>
 
-
-
     <header class="hero-section text-white">
-
         <div class="container">
-
             <div class="row align-items-center">
-
                 <div class="col-lg-7 text-center text-lg-start">
-
                     <span class="badge rounded-pill bg-warning text-dark px-3 py-2 mb-3 fw-bold">
-
                         <i class="fas fa-clock me-1"></i> Dinheiro na conta em até 24h
-
                     </span>
-
                     <h1 class="display-4 fw-bold mb-4">Empréstimo Consignado com as <span class="text-gradient">Menores Taxas</span> do Mercado.</h1>
-
                     <p class="lead mb-4 opacity-75">Sem consulta ao SPC/Serasa. Desconto direto na folha para Aposentados, Pensionistas e Servidores.</p>
-
                     
-
                     <div class="d-grid gap-2 d-md-flex flex-column align-items-center align-items-lg-start">
-
                         <div class="mb-3">
-
                             <img src="https://img.icons8.com/color/48/000000/shield.png" width="25" style="vertical-align: middle;">
-
                             <span class="small fw-bold ms-2"> Site Seguro | Conexão Criptografada</span>
-
                         </div>
-
                         <a href="https://wa.me/5522999461668?text=Olá! Vim pelo site e quero fazer uma simulação." class="btn btn-premium btn-lg rounded-pill px-5 py-3 shadow">
-
                             <i class="fab fa-whatsapp me-2"></i> SIMULAR AGORA
-
                         </a>
-
                     </div>
-
                 </div>
-
                 
-
                 <div class="col-lg-5 d-none d-lg-block">
-
                     <div class="glass-card p-4 shadow-lg">
-
                         <h4 class="fw-bold mb-4 text-center">Por que nos escolher?</h4>
-
                         <ul class="list-unstyled">
-
                             <li class="mb-3 d-flex align-items-center"><i class="fas fa-check-circle text-warning me-3"></i> Taxas a partir de 1,20% a.m.</li>
-
                             <li class="mb-3 d-flex align-items-center"><i class="fas fa-check-circle text-warning me-3"></i> Sem taxas escondidas</li>
-
                             <li class="mb-3 d-flex align-items-center"><i class="fas fa-check-circle text-warning me-3"></i> 100% Online e Seguro</li>
-
                             <li class="d-flex align-items-center"><i class="fas fa-check-circle text-warning me-3"></i> Prazo de até 96 meses</li>
-
                         </ul>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </header>
 
-
-
     <section class="py-5 bg-light">
-
         <div class="container py-4">
-
             <div class="text-center mb-5">
-
                 <h2 class="fw-bold">Nossas Soluções para Você</h2>
-
                 <p class="text-muted">Clique nos cards para saber mais detalhes</p>
-
                 <div style="width: 50px; height: 3px; background: #ffcc00; margin: 15px auto;"></div>
-
             </div>
-
             
-
             <div class="row g-4">
-
                 <div class="col-md-4">
-
                     <div class="card-container" onclick="this.classList.toggle('is-flipped')">
-
                         <div class="card-inner">
-
                             <div class="card-front">
-
                                 <div class="icon-box"><i class="fas fa-file-invoice-dollar"></i></div>
-
                                 <h5 class="fw-bold">Margem Nova</h5>
-
                                 <p class="text-muted small">Dinheiro extra para quem ainda tem margem disponível.</p>
-
                                 <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
-
                             </div>
-
                             <div class="card-back">
-
                                 <h6 class="fw-bold text-dark mb-3">O que é?</h6>
-
                                 <p class="small text-muted" style="line-height: 1.4;">É a oportunidade ideal para quem recebeu um aumento de salário ou ainda não utilizou todo o limite permitido. Dinheiro rápido diretamente na conta sem comprometer sua renda.</p>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
 
-
-
                 <div class="col-md-4">
-
                     <div class="card-container" onclick="this.classList.toggle('is-flipped')">
-
                         <div class="card-inner">
-
                             <div class="card-front">
-
                                 <div class="icon-box"><i class="fas fa-exchange-alt"></i></div>
-
                                 <h5 class="fw-bold">Portabilidade</h5>
-
                                 <p class="text-muted small">Reduza os juros de sua dívida atual e diminua sua parcela.</p>
-
                                 <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
-
                             </div>
-
                             <div class="card-back">
-
                                 <h6 class="fw-bold text-dark mb-3">O que é?</h6>
-
                                 <p class="small text-muted" style="line-height: 1.4;">Cansado de juros altos? Permite que você mude sua dívida de banco. O novo banco oferece condições melhores, reduzindo suas parcelas mensais.</p>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
 
-
-
                 <div class="col-md-4">
-
                     <div class="card-container" onclick="this.classList.toggle('is-flipped')">
-
                         <div class="card-inner">
-
                             <div class="card-front">
-
                                 <div class="icon-box"><i class="fas fa-sync"></i></div>
-
                                 <h5 class="fw-bold">Refinanciamento</h5>
-
                                 <p class="text-muted small">Refinancie seu contrato e receba um "troco" em conta.</p>
-
                                 <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
-
                             </div>
-
                             <div class="card-back">
-
                                 <h6 class="fw-bold text-dark mb-3">O que é?</h6>
-
                                 <p class="small text-muted" style="line-height: 1.4;">Você renova o contrato atual e a diferença entre o que já pagou e o novo saldo retorna para você como um "troco" em dinheiro, sem aumentar a parcela.</p>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
 
-
-
                 <div class="col-md-4">
-
                     <div class="card-container" onclick="this.classList.toggle('is-flipped')">
-
                         <div class="card-inner">
-
                             <div class="card-front">
-
                                 <div class="icon-box"><i class="fas fa-credit-card"></i></div>
-
                                 <h5 class="fw-bold">Cartão Consignado</h5>
-
                                 <p class="text-muted small">Sem anuidade e com as menores taxas do mercado.</p>
-
                                 <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
-
                             </div>
-
                             <div class="card-back">
-
                                 <h6 class="fw-bold text-dark mb-3">O que é?</h6>
-
                                 <p class="small text-muted" style="line-height: 1.4;">Funciona como um cartão comum, mas o pagamento mínimo é descontado direto na folha, garantindo taxas muito menores e geralmente sem anuidade.</p>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
 
-
-
                 <div class="col-md-4">
-
                     <div class="card-container" onclick="this.classList.toggle('is-flipped')">
-
                         <div class="card-inner">
-
                             <div class="card-front">
-
                                 <div class="icon-box"><i class="fas fa-piggy-bank"></i></div>
-
                                 <h5 class="fw-bold">Antecipação FGTS</h5>
-
                                 <p class="text-muted small">Saque o seu FGTS hoje mesmo sem parcelas mensais.</p>
-
                                 <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
-
                             </div>
-
                             <div class="card-back">
-
                                 <h6 class="fw-bold text-dark mb-3">O que é?</h6>
-
                                 <p class="small text-muted" style="line-height: 1.4;">Antecipe as parcelas do Saque-Aniversário e receba agora. Sem boletos mensais: o pagamento é feito anualmente pelo governo do seu saldo FGTS.</p>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
-
 
                 <div class="col-md-4">
-
                     <div class="card-container" onclick="this.classList.toggle('is-flipped')">
-
                         <div class="card-inner">
-
                             <div class="card-front">
-
                                 <div class="icon-box"><i class="fas fa-user-tie"></i></div>
-
                                 <h5 class="fw-bold">Crédito Trabalhador</h5>
-
                                 <p class="text-muted small">Condições especiais para o setor público e privado.</p>
-
                                 <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
-
                             </div>
-
                             <div class="card-back">
-
                                 <h6 class="fw-bold text-dark mb-3">O que é?</h6>
-
                                 <p class="small text-muted" style="line-height: 1.4;">Linha versátil para funcionários públicos ou CLT. Oferece prazos facilitados e taxas competitivas com agilidade na aprovação para quem está na ativa.</p>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
-
-
     <footer style="background-color: #0a192f; color: white; padding: 60px 0; border: none;">
-
         <div class="container text-center">
-
             <h4 class="fw-bold mb-4">Consig Online - Consultoria Financeira <span class="text-muted fw-light">ONLINE</span></h4>
-
             
-
             <p class="mb-1" style="font-weight: 600;">Anderson Silva Consultoria</p>
-
             <p class="small mb-1" style="opacity: 0.8;">Atendimento: Segunda a Sexta, das 09h às 18h</p>
-
             <p class="small" style="opacity: 0.8;">Contato: (22) 99946-1668</p>
-
             
-
             <hr class="my-4" style="width: 30%; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.15);">
-
             
-
             <p style="font-size: 11px; color: #7a8a9e; line-height: 1.6; max-width: 800px; margin: 0 auto 30px auto;">
-
                 A Consig Online atua como correspondente bancário seguindo as normas da Resolução 3.954 do Banco Central. 
-
                 Não somos uma instituição financeira e não solicitamos pagamentos antecipados. 
-
                 As taxas podem variar de acordo com o convênio. Nossas operações são 100% seguras.
-
             </p>
 
-
-
             <div style="display: flex; flex-direction: column; align-items: center;">
-
                 <span style="font-size: 9px; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;">Publicidade</span>
-
                 <div style="width: 100%; max-width: 728px;">
-
                     <ins class="adsbygoogle"
-
                          style="display:inline-block; width:100%; height:90px"
-
                          data-ad-client="ca-pub-6941311170472131"
-
                          data-ad-slot="1234567890"
-
                          data-ad-format="horizontal"
-
                          data-full-width-responsive="true"></ins>
-
                     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
                 </div>
-
             </div>
-
         </div>
-
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
