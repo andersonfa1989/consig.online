@@ -33,6 +33,11 @@
             width: auto;
             display: block;
         }
+        /* Classe para logos escuras ficarem brancas no fundo azul */
+        .logo-light {
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+        }
         .top-bank-item span {
             color: white;
             font-size: 13px;
@@ -99,10 +104,10 @@
             text-decoration: none;
         }
 
-        /* --- NOVO EFEITO FLIP CARD (VIRAR) --- */
+        /* --- EFEITO FLIP CARD --- */
         .card-container {
             perspective: 1000px;
-            height: 280px; /* Altura fixa para os cards */
+            height: 300px;
             cursor: pointer;
         }
         .card-inner {
@@ -112,7 +117,6 @@
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             transform-style: preserve-3d;
         }
-        /* Classe que será adicionada via JS ao clicar */
         .card-container.is-flipped .card-inner {
             transform: rotateY(180deg);
         }
@@ -123,7 +127,7 @@
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             border-radius: 15px;
-            padding: 30px;
+            padding: 25px;
             border: 1px solid #eee;
             background: white;
             display: flex;
@@ -134,10 +138,6 @@
             background: #fdfdfd;
             transform: rotateY(180deg);
             border-color: #ffcc00;
-        }
-        .card-front:hover {
-            border-color: #ffcc00;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
         .icon-box {
             width: 50px;
@@ -175,30 +175,28 @@
         </div>
     </nav>
 
-<div class="top-bank-slider">
+    <div class="top-bank-slider">
         <div class="top-bank-track">
-
             <div class="top-bank-item"><img src="FUTURO.png" alt="Futuro"><span>BANCO FUTURO</span></div>  
             <div class="top-bank-item"><img src="SANTANDER.png" alt="Santander"></div>
+            <div class="top-bank-item"><img src="AKI-CAPITAL.png" alt="Aki Capital" class="logo-light"><span>AKI CAPITAL</span></div>
             <div class="top-bank-item"><img src="AMIGOZ.png" alt="Amigoz"><span>AMIGOZ</span></div>
-            <div class="top-bank-item"><img src="AKI-CAPITAL.png" alt="Aki Capital"><span>AKI CAPITAL</span></div>
             <div class="top-bank-item"><img src="DIGIO.png" alt="Digio"><span>BANCO DIGIO</span></div>
             <div class="top-bank-item"><img src="Itaú.png" alt="Itaú"><span>BANCO ITAÚ</span></div>
             
             <div class="top-bank-item"><img src="FUTURO.png" alt="Futuro"><span>BANCO FUTURO</span></div>  
             <div class="top-bank-item"><img src="SANTANDER.png" alt="Santander"></div>
+            <div class="top-bank-item"><img src="AKI-CAPITAL.png" alt="Aki Capital" class="logo-light"><span>AKI CAPITAL</span></div>
             <div class="top-bank-item"><img src="AMIGOZ.png" alt="Amigoz"><span>AMIGOZ</span></div>
-            <div class="top-bank-item"><img src="AKI-CAPITAL.png" alt="Aki Capital"><span>AKI CAPITAL</span></div>
             <div class="top-bank-item"><img src="DIGIO.png" alt="Digio"><span>BANCO DIGIO</span></div>
             <div class="top-bank-item"><img src="Itaú.png" alt="Itaú"><span>BANCO ITAÚ</span></div>
 
-            <div class="top-bank-item"><img src="FUTURO.png" alt="Futuro"><span>BANCO FUTURO</span></div>  
+                        <div class="top-bank-item"><img src="FUTURO.png" alt="Futuro"><span>BANCO FUTURO</span></div>  
             <div class="top-bank-item"><img src="SANTANDER.png" alt="Santander"></div>
+            <div class="top-bank-item"><img src="AKI-CAPITAL.png" alt="Aki Capital" class="logo-light"><span>AKI CAPITAL</span></div>
             <div class="top-bank-item"><img src="AMIGOZ.png" alt="Amigoz"><span>AMIGOZ</span></div>
-            <div class="top-bank-item"><img src="AKI-CAPITAL.png" alt="Aki Capital"><span>AKI CAPITAL</span></div>
             <div class="top-bank-item"><img src="DIGIO.png" alt="Digio"><span>BANCO DIGIO</span></div>
             <div class="top-bank-item"><img src="Itaú.png" alt="Itaú"><span>BANCO ITAÚ</span></div>
-
         </div>
     </div>
 
@@ -211,7 +209,6 @@
                     </span>
                     <h1 class="display-4 fw-bold mb-4">Empréstimo Consignado com as <span class="text-gradient">Menores Taxas</span> do Mercado.</h1>
                     <p class="lead mb-4 opacity-75">Sem consulta ao SPC/Serasa. Desconto direto na folha para Aposentados, Pensionistas e Servidores.</p>
-                    
                     <div class="d-grid gap-2 d-md-flex flex-column align-items-center align-items-lg-start">
                         <div class="mb-3">
                             <img src="https://img.icons8.com/color/48/000000/shield.png" width="25" style="vertical-align: middle;">
@@ -222,7 +219,6 @@
                         </a>
                     </div>
                 </div>
-                
                 <div class="col-lg-5 d-none d-lg-block">
                     <div class="glass-card p-4 shadow-lg">
                         <h4 class="fw-bold mb-4 text-center">Por que nos escolher?</h4>
@@ -242,7 +238,7 @@
         <div class="container py-4">
             <div class="text-center mb-5">
                 <h2 class="fw-bold">Nossas Soluções para Você</h2>
-                <p class="text-muted">Clique nos cards para saber mais detalhes</p>
+                <p class="text-muted">Clique nos cards para ver os detalhes</p>
                 <div style="width: 50px; height: 3px; background: #ffcc00; margin: 15px auto;"></div>
             </div>
             
@@ -254,11 +250,11 @@
                                 <div class="icon-box"><i class="fas fa-file-invoice-dollar"></i></div>
                                 <h5 class="fw-bold">Margem Nova</h5>
                                 <p class="text-muted small">Dinheiro extra para quem ainda tem margem disponível.</p>
-                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para saber mais</span>
                             </div>
                             <div class="card-back">
-                                <h6 class="fw-bold text-dark mb-3">O que é?</h6>
-                                <p class="small text-muted" style="line-height: 1.4;">É a oportunidade ideal para quem recebeu um aumento de salário ou ainda não utilizou todo o limite permitido. Dinheiro rápido diretamente na conta sem comprometer sua renda.</p>
+                                <h6 class="fw-bold text-dark">Margem Nova</h6>
+                                <p class="small text-muted">Ideal para quem recebeu aumento ou não usou todo o limite. Acesse novo crédito sem comprometer a renda além do permitido, com dinheiro rápido na conta.</p>
                             </div>
                         </div>
                     </div>
@@ -271,11 +267,11 @@
                                 <div class="icon-box"><i class="fas fa-exchange-alt"></i></div>
                                 <h5 class="fw-bold">Portabilidade</h5>
                                 <p class="text-muted small">Reduza os juros de sua dívida atual e diminua sua parcela.</p>
-                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para saber mais</span>
                             </div>
                             <div class="card-back">
-                                <h6 class="fw-bold text-dark mb-3">O que é?</h6>
-                                <p class="small text-muted" style="line-height: 1.4;">Cansado de juros altos? Permite que você mude sua dívida de banco. O novo banco oferece condições melhores, reduzindo suas parcelas mensais.</p>
+                                <h6 class="fw-bold text-dark">Portabilidade</h6>
+                                <p class="small text-muted">Mude sua dívida para um banco com juros menores. O novo banco quita seu saldo anterior e oferece parcelas reduzidas, sobrando mais dinheiro no bolso.</p>
                             </div>
                         </div>
                     </div>
@@ -288,11 +284,11 @@
                                 <div class="icon-box"><i class="fas fa-sync"></i></div>
                                 <h5 class="fw-bold">Refinanciamento</h5>
                                 <p class="text-muted small">Refinancie seu contrato e receba um "troco" em conta.</p>
-                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para saber mais</span>
                             </div>
                             <div class="card-back">
-                                <h6 class="fw-bold text-dark mb-3">O que é?</h6>
-                                <p class="small text-muted" style="line-height: 1.4;">Você renova o contrato atual e a diferença entre o que já pagou e o novo saldo retorna para você como um "troco" em dinheiro, sem aumentar a parcela.</p>
+                                <h6 class="fw-bold text-dark">Refinanciamento</h6>
+                                <p class="small text-muted">Renove seu contrato atual estendendo o prazo. A diferença retorna como um "troco" em dinheiro para você, mantendo o valor da parcela que já paga.</p>
                             </div>
                         </div>
                     </div>
@@ -305,11 +301,11 @@
                                 <div class="icon-box"><i class="fas fa-credit-card"></i></div>
                                 <h5 class="fw-bold">Cartão Consignado</h5>
                                 <p class="text-muted small">Sem anuidade e com as menores taxas do mercado.</p>
-                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para saber mais</span>
                             </div>
                             <div class="card-back">
-                                <h6 class="fw-bold text-dark mb-3">O que é?</h6>
-                                <p class="small text-muted" style="line-height: 1.4;">Funciona como um cartão comum, mas o pagamento mínimo é descontado direto na folha, garantindo taxas muito menores e geralmente sem anuidade.</p>
+                                <h6 class="fw-bold text-dark">Cartão Consignado</h6>
+                                <p class="small text-muted">O pagamento mínimo é descontado em folha, garantindo juros muito menores que cartões comuns, geralmente sem anuidade e com limite facilitado.</p>
                             </div>
                         </div>
                     </div>
@@ -322,11 +318,11 @@
                                 <div class="icon-box"><i class="fas fa-piggy-bank"></i></div>
                                 <h5 class="fw-bold">Antecipação FGTS</h5>
                                 <p class="text-muted small">Saque o seu FGTS hoje mesmo sem parcelas mensais.</p>
-                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para saber mais</span>
                             </div>
                             <div class="card-back">
-                                <h6 class="fw-bold text-dark mb-3">O que é?</h6>
-                                <p class="small text-muted" style="line-height: 1.4;">Antecipe as parcelas do Saque-Aniversário e receba agora. Sem boletos mensais: o pagamento é feito anualmente pelo governo do seu saldo FGTS.</p>
+                                <h6 class="fw-bold text-dark">Antecipação FGTS</h6>
+                                <p class="small text-muted">Antecipe até 10 anos do Saque-Aniversário. Sem boletos mensais, o pagamento é anual via saldo FGTS. Dinheiro na conta para quem trabalha ou trabalhou CLT.</p>
                             </div>
                         </div>
                     </div>
@@ -339,11 +335,11 @@
                                 <div class="icon-box"><i class="fas fa-user-tie"></i></div>
                                 <h5 class="fw-bold">Crédito Trabalhador</h5>
                                 <p class="text-muted small">Condições especiais para o setor público e privado.</p>
-                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para saber mais</span>
                             </div>
                             <div class="card-back">
-                                <h6 class="fw-bold text-dark mb-3">O que é?</h6>
-                                <p class="small text-muted" style="line-height: 1.4;">Linha versátil para funcionários públicos ou CLT. Oferece prazos facilitados e taxas competitivas com agilidade na aprovação para quem está na ativa.</p>
+                                <h6 class="fw-bold text-dark">Crédito Trabalhador</h6>
+                                <p class="small text-muted">Linha de crédito versátil com condições personalizadas. Oferece prazos facilitados e aprovação ágil tanto para servidores quanto setor privado.</p>
                             </div>
                         </div>
                     </div>
@@ -352,34 +348,17 @@
         </div>
     </section>
 
-    <footer style="background-color: #0a192f; color: white; padding: 60px 0; border: none;">
+    <footer style="background-color: #0a192f; color: white; padding: 60px 0;">
         <div class="container text-center">
             <h4 class="fw-bold mb-4">Consig Online - Consultoria Financeira <span class="text-muted fw-light">ONLINE</span></h4>
-            
             <p class="mb-1" style="font-weight: 600;">Anderson Silva Consultoria</p>
-            <p class="small mb-1" style="opacity: 0.8;">Atendimento: Segunda a Sexta, das 09h às 18h</p>
-            <p class="small" style="opacity: 0.8;">Contato: (22) 99946-1668</p>
-            
+            <p class="small">Contato: (22) 99946-1668</p>
             <hr class="my-4" style="width: 30%; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.15);">
-            
-            <p style="font-size: 11px; color: #7a8a9e; line-height: 1.6; max-width: 800px; margin: 0 auto 30px auto;">
+            <p style="font-size: 11px; color: #7a8a9e; line-height: 1.6; max-width: 800px; margin: 0 auto;">
                 A Consig Online atua como correspondente bancário seguindo as normas da Resolução 3.954 do Banco Central. 
                 Não somos uma instituição financeira e não solicitamos pagamentos antecipados. 
                 As taxas podem variar de acordo com o convênio. Nossas operações são 100% seguras.
             </p>
-
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <span style="font-size: 9px; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;">Publicidade</span>
-                <div style="width: 100%; max-width: 728px;">
-                    <ins class="adsbygoogle"
-                         style="display:inline-block; width:100%; height:90px"
-                         data-ad-client="ca-pub-6941311170472131"
-                         data-ad-slot="1234567890"
-                         data-ad-format="horizontal"
-                         data-full-width-responsive="true"></ins>
-                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-                </div>
-            </div>
         </div>
     </footer>
 </body>
