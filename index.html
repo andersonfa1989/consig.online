@@ -73,6 +73,31 @@
             font-weight: 800;
         }
 
+        /* Isso vai deixar os nomes lado a lado e bonitos no rodapé */
+.footer-nav-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 20px 0;
+    padding: 10px 0;
+}
+
+.footer-nav-links a {
+    color: #ffcc00; /* Cor dourada igual aos detalhes do seu site */
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+
+.footer-nav-links a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
+}
+
         /* --- WHATSAPP & BUTTONS --- */
         .btn-premium {
             background: linear-gradient(90deg, #25d366, #128c7e);
@@ -364,6 +389,14 @@
             <p class="mb-1" style="font-weight: 600;">Anderson Silva Consultoria</p>
             <p class="small mb-1" style="opacity: 0.8;">Atendimento: Segunda a Sexta, das 08h às 20h</p>
             <p class="small" style="opacity: 0.8;">Contato: (22) 99946-1668</p>
+
+<div class="footer-nav-links">
+    <a href="credito-consignado.html">CRÉDITO CONSIGNADO</a>
+    <a href="cartao-consignado.html">CARTÃO CONSIGNADO</a>
+    <a href="servidores-militares.html">SERVIDORES E MILITARES</a>
+    <a href="inss.html">INSS</a>
+    <a href="refinanciamento.html">REFINANCIAMENTO</a>
+</div>
             
             <hr class="my-4" style="width: 30%; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.15);">
             
