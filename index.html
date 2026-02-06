@@ -1,350 +1,933 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Consig Online | Consultoria Financeira Premium</title>
-    
-    <meta name="description" content="Empréstimo consignado com as menores taxas do mercado. Dinheiro na conta em 24h.">
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; overflow-x: hidden; }
+
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
+
         
+
         /* --- ESTILO DA ESTEIRA DE LOGOS --- */
+
         .top-bank-slider {
+
             background: #0a192f; 
+
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
             overflow: hidden;
+
             padding: 15px 0;
+
             white-space: nowrap;
+
         }
+
         .top-bank-track {
+
             display: inline-flex;
+
             align-items: center;
+
             animation: scroll-top 40s linear infinite;
+
         }
+
         .top-bank-item {
+
             display: flex;
+
             align-items: center;
+
             margin: 0 40px;
+
         }
+
         .top-bank-item img {
+
             height: 25px; 
+
             width: auto;
+
             display: block;
+
         }
+
+
+
+        /* Classe para fazer a logo AKI Capital aparecer em branco no fundo escuro */
+
         .logo-light {
+
             filter: brightness(0) invert(1);
+
             opacity: 0.9;
+
         }
+
+
+
         .top-bank-item span {
+
             color: white;
+
             font-size: 13px;
+
             font-weight: 700;
+
             margin-left: 10px;
+
             letter-spacing: 1px;
+
         }
+
         @keyframes scroll-top {
+
             0% { transform: translateX(0); }
+
             100% { transform: translateX(-50%); }
+
         }
+
+
 
         /* --- HERO & GLASS CARD --- */
+
         .hero-section {
+
             background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
-            padding: 100px 0;
+
+            padding: 80px 0;
+
             position: relative;
-            overflow: hidden;
+
         }
+
         .glass-card {
+
             background: rgba(255, 255, 255, 0.08);
+
             backdrop-filter: blur(12px);
+
             border: 1px solid rgba(255, 255, 255, 0.15);
+
             border-radius: 20px;
+
             color: white !important;
+
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+
         }
+
         .text-gradient {
+
             background: linear-gradient(90deg, #ffcc00, #ffae00);
+
             -webkit-background-clip: text;
+
             -webkit-text-fill-color: transparent;
+
             font-weight: 800;
-        }
-        .hero-section h1.display-4 {
-            font-size: 2.5rem;
-            max-width: 90%;
+
         }
 
-        .consultor-img {
-            position: absolute;
-            top: 0;
-            right: 0;
-            height: 100%;
-            width: 55%; 
-            background-image: url('consultor-consignado.png');
-            background-size: cover;
-            background-position: center right;
-            z-index: 1;
-            -webkit-mask-image: linear-gradient(to left, black 30%, transparent 75%);
-            mask-image: linear-gradient(to left, black 30%, transparent 75%);
-        }
 
-        /* --- FLIP CARDS --- */
-        .card-container {
-            perspective: 1000px;
-            height: 300px; /* Aumentado levemente para folga */
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
-        .card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-style: preserve-3d;
-        }
-        .card-container.is-flipped .card-inner {
-            transform: rotateY(180deg);
-        }
-        .card-front, .card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            border-radius: 15px;
-            padding: 25px;
-            border: 1px solid #eee;
-            background: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .card-back {
-            background: #fdfdfd;
-            transform: rotateY(180deg);
-            border-color: #ffcc00;
-            overflow-y: auto; /* Garante que o texto não corte no mobile */
-        }
-        .icon-box {
-            width: 50px;
-            height: 50px;
-            background: #f0f4f8;
-            color: #0a192f;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            font-size: 20px;
-        }
-        .flip-hint {
-            font-size: 10px;
-            color: #aaa;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 10px;
-        }
 
-        /* --- FOOTER --- */
-        .footer-nav-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 20px 0;
-        }
-        .footer-nav-links a {
-            color: #ffcc00;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 12px;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-        .footer-nav-links a:hover { color: #fff; }
+/* Reduz o tamanho do título para não cobrir a imagem */
 
-        /* --- WHATSAPP --- */
+.hero-section h1.display-4 {
+
+    font-size: 2.5rem; /* Ajuste aqui se quiser ainda menor */
+
+    max-width: 90%;
+
+}
+
+
+
+/* Ajuste na Hero para comportar a imagem absoluta */
+
+.hero-section {
+
+    background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+
+    padding: 100px 0;
+
+    position: relative;
+
+    overflow: hidden; /* Garante que a foto não saia do limite */
+
+}
+
+
+
+/* A foto do consultor com o efeito de sumir (esfumaçar) */
+
+.consultor-img {
+
+    position: absolute;
+
+    top: 0;
+
+    right: 0;
+
+    height: 100%;
+
+    width: 50%; /* Ocupa metade da tela à direita */
+
+    background-image: url('consultor-consignado.png');
+
+    background-size: cover;
+
+    background-position: center right;
+
+    z-index: 1;
+
+    /* Esse é o truque do esfumaçado: */
+
+    -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
+
+    mask-image: linear-gradient(to left, black 60%, transparent 100%);
+
+}
+
+
+
+
+
+/* Garante que o texto fique acima da foto */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+
+/* Garante que o texto fique acima da foto */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+
+        /* Isso vai deixar os nomes lado a lado e bonitos no rodapé */
+
+.footer-nav-links {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
+
+    margin: 20px 0;
+
+    padding: 10px 0;
+
+}
+
+
+
+.footer-nav-links a {
+
+    color: #ffcc00; /* Cor dourada igual aos detalhes do seu site */
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    transition: 0.3s;
+
+    letter-spacing: 1px;
+
+}
+
+
+
+.footer-nav-links a:hover {
+
+    color: #ffffff;
+
+    text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
+
+}
+
+
+
+        /* --- WHATSAPP & BUTTONS --- */
+
         .btn-premium {
+
             background: linear-gradient(90deg, #25d366, #128c7e);
+
             border: none;
+
             color: white;
+
             transition: all 0.3s ease;
+
             font-weight: 600;
+
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+
         }
+
         .btn-premium:hover {
+
             transform: translateY(-3px);
+
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+
             color: white;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+
         }
+
         .whatsapp-float {
+
             position: fixed;
+
             width: 60px;
+
             height: 60px;
-            bottom: 30px;
-            right: 30px;
+
+            bottom: 40px;
+
+            right: 40px;
+
             background-color: #25d366;
+
             color: #FFF;
+
             border-radius: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+            text-align: center;
+
             font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+
+            box-shadow: 2px 2px 3px #999;
+
             z-index: 1000;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
             text-decoration: none;
+
         }
+
+
+
+        /* --- NOVO EFEITO FLIP CARD (VIRAR) --- */
+
+        .card-container {
+
+            perspective: 1000px;
+
+            height: 280px; 
+
+            cursor: pointer;
+
+        }
+
+        .card-inner {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 100%;
+
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+            transform-style: preserve-3d;
+
+        }
+
+        .card-container.is-flipped .card-inner {
+
+            transform: rotateY(180deg);
+
+        }
+
+        .card-front, .card-back {
+
+            position: absolute;
+
+            width: 100%;
+
+            height: 100%;
+
+            -webkit-backface-visibility: hidden;
+
+            backface-visibility: hidden;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            border: 1px solid #eee;
+
+            background: white;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+        }
+
+        .card-back {
+
+            background: #fdfdfd;
+
+            transform: rotateY(180deg);
+
+            border-color: #ffcc00;
+
+        }
+
+        .card-front:hover {
+
+            border-color: #ffcc00;
+
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+
+        }
+
+        .icon-box {
+
+            width: 50px;
+
+            height: 50px;
+
+            background: #f0f4f8;
+
+            color: #0a192f;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            margin-bottom: 15px;
+
+            font-size: 20px;
+
+        }
+
+        .flip-hint {
+
+            font-size: 10px;
+
+            color: #aaa;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            margin-top: 10px;
+
+        }
+
     </style>
+
 </head>
+
 <body>
 
+
+
     <a href="https://wa.me/5522999461668?text=Olá! Vim pelo site e quero fazer uma simulação." class="whatsapp-float" target="_blank">
+
         <i class="fab fa-whatsapp"></i>
+
     </a>
 
+
+
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top py-3">
+
         <div class="container">
+
             <a class="navbar-brand fw-bold" href="#">
+
                 <span style="color: #0a192f;">CONSIG</span> <span class="text-muted fw-light">ONLINE</span>
+
             </a>
-            <a href="https://wa.me/5522999461668" class="btn btn-outline-dark rounded-pill px-4 d-none d-md-block">Falar com Consultor</a>
+
+            <a href="https://wa.me/5522999461668?text=Olá! Vim pelo site e quero fazer uma simulação." class="btn btn-outline-dark rounded-pill px-4 d-none d-md-block">Falar com Consultor</a>
+
         </div>
+
     </nav>
 
+
+
     <div class="top-bank-slider">
+
         <div class="top-bank-track">
+
             <div class="top-bank-item"><img src="FUTURO.png" alt="Futuro"><span>BANCO FUTURO</span></div>  
+
             <div class="top-bank-item"><img src="SANTANDER.png" alt="Santander"></div>
+
             <div class="top-bank-item"><img src="AKI-CAPITAL.png" alt="Aki Capital" class="logo-light"></div>
+
             <div class="top-bank-item"><img src="AMIGOZ.png" alt="Amigoz"><span>AMIGOZ</span></div>
+
             <div class="top-bank-item"><img src="DIGIO.png" alt="Digio"><span>BANCO DIGIO</span></div>
+
             <div class="top-bank-item"><img src="Itaú.png" alt="Itaú"><span>BANCO ITAÚ</span></div>
+
+            
+
             <div class="top-bank-item"><img src="FUTURO.png" alt="Futuro"><span>BANCO FUTURO</span></div>  
+
             <div class="top-bank-item"><img src="SANTANDER.png" alt="Santander"></div>
+
             <div class="top-bank-item"><img src="AKI-CAPITAL.png" alt="Aki Capital" class="logo-light"></div>
+
             <div class="top-bank-item"><img src="AMIGOZ.png" alt="Amigoz"><span>AMIGOZ</span></div>
+
             <div class="top-bank-item"><img src="DIGIO.png" alt="Digio"><span>BANCO DIGIO</span></div>
+
             <div class="top-bank-item"><img src="Itaú.png" alt="Itaú"><span>BANCO ITAÚ</span></div>
+
+
+
+             <div class="top-bank-item"><img src="FUTURO.png" alt="Futuro"><span>BANCO FUTURO</span></div>  
+
+            <div class="top-bank-item"><img src="SANTANDER.png" alt="Santander"></div>
+
+            <div class="top-bank-item"><img src="AKI-CAPITAL.png" alt="Aki Capital" class="logo-light"></div>
+
+            <div class="top-bank-item"><img src="AMIGOZ.png" alt="Amigoz"><span>AMIGOZ</span></div>
+
+            <div class="top-bank-item"><img src="DIGIO.png" alt="Digio"><span>BANCO DIGIO</span></div>
+
+            <div class="top-bank-item"><img src="Itaú.png" alt="Itaú"><span>BANCO ITAÚ</span></div>
+
+                
+
         </div>
+
     </div>
 
-    <header class="hero-section text-white">
-        <div class="consultor-img d-none d-lg-block"></div>
-        <div class="container position-relative" style="z-index: 2;">
-            <div class="row align-items-center">
-                <div class="col-lg-6 text-center text-lg-start">
-                    <span class="badge rounded-pill bg-warning text-dark px-3 py-2 mb-3 fw-bold">
-                        <i class="fas fa-clock me-1"></i> Dinheiro na conta em até 24h
-                    </span>
-                    <h1 class="display-4 fw-bold mb-4">Empréstimo Consignado com as <span class="text-gradient">Menores Taxas</span></h1>
-                    <p class="lead mb-4 opacity-75">Sem consulta ao SPC/Serasa. Desconto direto na folha para Aposentados e Pensionistas.</p>
+
+
+<header class="hero-section text-white">
+
+    <div class="consultor-img d-none d-lg-block"></div>
+
+
+
+    <div class="container hero-content">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6 text-center text-lg-start">
+
+                <span class="badge rounded-pill bg-warning text-dark px-3 py-2 mb-3 fw-bold">
+
+                    <i class="fas fa-clock me-1"></i> Dinheiro na conta em até 24h
+
+                </span>
+
+                <h1 class="display-4 fw-bold mb-4">Empréstimo Consignado com as <span class="text-gradient">Menores Taxas</span></h1>
+
+                <p class="lead mb-4 opacity-75" style="max-width: 500px;">Sem consulta ao SPC/Serasa. Desconto direto na folha para Aposentados e Pensionistas.</p>
+
+                
+
+                <div class="d-grid gap-2 d-md-flex flex-column align-items-center align-items-lg-start">
+
                     <a href="https://wa.me/5522999461668" class="btn btn-premium btn-lg rounded-pill px-5 py-3 shadow">
+
                         <i class="fab fa-whatsapp me-2"></i> SIMULAR AGORA
+
                     </a>
+
                 </div>
-                <div class="col-lg-6 d-none d-lg-block">
-                    <div class="glass-card p-4 shadow-lg ms-lg-5" style="max-width: 320px;">
-                        <h5 class="fw-bold mb-3 text-center">Por que nos escolher?</h5>
-                        <ul class="list-unstyled mb-0 small">
-                            <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i> Taxas a partir de 1,20% a.m.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i> Sem taxas escondidas</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i> 100% Online e Seguro</li>
-                            <li><i class="fas fa-check-circle text-warning me-2"></i> Prazo de até 96 meses</li>
-                        </ul>
-                    </div>
-                </div>
+
             </div>
+
+            
+
+            <div class="col-lg-6 d-none d-lg-block">
+
+                <div class="glass-card p-4 shadow-lg" style="max-width: 350px; margin-left: auto;">
+
+                    <h5 class="fw-bold mb-3 text-center">Por que nos escolher?</h5>
+
+                    <ul class="list-unstyled mb-0 small">
+
+                        <li class="mb-2 d-flex align-items-center"><i class="fas fa-check-circle text-warning me-2"></i> Taxas a partir de 1,20% a.m.</li>
+
+                        <li class="mb-2 d-flex align-items-center"><i class="fas fa-check-circle text-warning me-2"></i> Sem taxas escondidas</li>
+
+                        <li class="mb-2 d-flex align-items-center"><i class="fas fa-check-circle text-warning me-2"></i> 100% Online e Seguro</li>
+
+                        <li class="d-flex align-items-center"><i class="fas fa-check-circle text-warning me-2"></i> Prazo de até 96 meses</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
         </div>
-    </header>
+
+    </div>
+
+</header>
+
+
 
     <section class="py-5 bg-light">
+
         <div class="container py-4">
+
             <div class="text-center mb-5">
+
                 <h2 class="fw-bold">Nossas Soluções para Você</h2>
-                <p class="text-muted">Toque no card para ver detalhes</p>
+
+                <p class="text-muted">Clique nos cards para saber mais detalhes</p>
+
                 <div style="width: 50px; height: 3px; background: #ffcc00; margin: 15px auto;"></div>
+
             </div>
+
             
+
             <div class="row g-4">
+
                 <div class="col-md-4">
+
                     <div class="card-container" onclick="this.classList.toggle('is-flipped')">
+
                         <div class="card-inner">
+
                             <div class="card-front">
+
                                 <div class="icon-box"><i class="fas fa-file-invoice-dollar"></i></div>
+
                                 <h5 class="fw-bold">Margem Nova</h5>
+
                                 <p class="text-muted small">Dinheiro extra para quem ainda tem margem disponível.</p>
-                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para saber mais</span>
+
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+
                             </div>
+
                             <div class="card-back">
+
                                 <h6 class="fw-bold text-dark mb-3">O que é?</h6>
-                                <p class="small text-muted">A oportunidade ideal para quem recebeu aumento ou tem limite disponível. Dinheiro rápido sem comprometer sua renda.</p>
+
+                                <p class="small text-muted" style="line-height: 1.4;">É a oportunidade ideal para quem recebeu um aumento de salário ou ainda não utilizou todo o limite permitido. Dinheiro rápido diretamente na conta sem comprometer sua renda.</p>
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
+
+
+
                 <div class="col-md-4">
+
                     <div class="card-container" onclick="this.classList.toggle('is-flipped')">
+
                         <div class="card-inner">
+
                             <div class="card-front">
+
                                 <div class="icon-box"><i class="fas fa-exchange-alt"></i></div>
+
                                 <h5 class="fw-bold">Portabilidade</h5>
-                                <p class="text-muted small">Reduza os juros e diminua o valor da sua parcela.</p>
-                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para saber mais</span>
+
+                                <p class="text-muted small">Reduza os juros de sua dívida atual e diminua sua parcela.</p>
+
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+
                             </div>
+
                             <div class="card-back">
+
                                 <h6 class="fw-bold text-dark mb-3">O que é?</h6>
-                                <p class="small text-muted">Troque sua dívida cara por uma mais barata. Reduzimos seus juros e você paga menos por mês.</p>
+
+                                <p class="small text-muted" style="line-height: 1.4;">Cansado de juros altos? Permite que você mude sua dívida de banco. O novo banco oferece condições melhores, reduzindo suas parcelas mensais.</p>
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
+
+
+
                 <div class="col-md-4">
+
                     <div class="card-container" onclick="this.classList.toggle('is-flipped')">
+
                         <div class="card-inner">
+
                             <div class="card-front">
-                                <div class="icon-box"><i class="fas fa-piggy-bank"></i></div>
-                                <h5 class="fw-bold">Antecipação FGTS</h5>
-                                <p class="text-muted small">Saque seu FGTS hoje mesmo sem boletos mensais.</p>
-                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para saber mais</span>
+
+                                <div class="icon-box"><i class="fas fa-sync"></i></div>
+
+                                <h5 class="fw-bold">Refinanciamento</h5>
+
+                                <p class="text-muted small">Refinancie seu contrato e receba um "troco" em conta.</p>
+
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+
                             </div>
+
                             <div class="card-back">
+
                                 <h6 class="fw-bold text-dark mb-3">O que é?</h6>
-                                <p class="small text-muted">Antecipe até 10 anos do Saque-Aniversário. O pagamento é anual e direto do saldo do FGTS.</p>
+
+                                <p class="small text-muted" style="line-height: 1.4;">Você renova o contrato atual e a diferença entre o que já pagou e o novo saldo retorna para você como um "troco" em dinheiro, sem aumentar a parcela.</p>
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
+
+
+
+                <div class="col-md-4">
+
+                    <div class="card-container" onclick="this.classList.toggle('is-flipped')">
+
+                        <div class="card-inner">
+
+                            <div class="card-front">
+
+                                <div class="icon-box"><i class="fas fa-credit-card"></i></div>
+
+                                <h5 class="fw-bold">Cartão Consignado</h5>
+
+                                <p class="text-muted small">Sem anuidade e com as menores taxas do mercado.</p>
+
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+
+                            </div>
+
+                            <div class="card-back">
+
+                                <h6 class="fw-bold text-dark mb-3">O que é?</h6>
+
+                                <p class="small text-muted" style="line-height: 1.4;">Funciona como um cartão comum, mas o pagamento mínimo é descontado direto na folha, garantindo taxas muito menores e geralmente sem anuidade.</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-4">
+
+                    <div class="card-container" onclick="this.classList.toggle('is-flipped')">
+
+                        <div class="card-inner">
+
+                            <div class="card-front">
+
+                                <div class="icon-box"><i class="fas fa-piggy-bank"></i></div>
+
+                                <h5 class="fw-bold">Antecipação FGTS</h5>
+
+                                <p class="text-muted small">Saque o seu FGTS hoje mesmo sem parcelas mensais.</p>
+
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+
+                            </div>
+
+                            <div class="card-back">
+
+                                <h6 class="fw-bold text-dark mb-3">O que é?</h6>
+
+                                <p class="small text-muted" style="line-height: 1.4;">Antecipe as parcelas do Saque-Aniversário e receba agora. Sem boletos mensais: o pagamento é feito anualmente pelo governo do seu saldo FGTS.</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-4">
+
+                    <div class="card-container" onclick="this.classList.toggle('is-flipped')">
+
+                        <div class="card-inner">
+
+                            <div class="card-front">
+
+                                <div class="icon-box"><i class="fas fa-user-tie"></i></div>
+
+                                <h5 class="fw-bold">Crédito Trabalhador</h5>
+
+                                <p class="text-muted small">Condições especiais para o setor público e privado.</p>
+
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+
+                            </div>
+
+                            <div class="card-back">
+
+                                <h6 class="fw-bold text-dark mb-3">O que é?</h6>
+
+                                <p class="small text-muted" style="line-height: 1.4;">Linha versátil para funcionários públicos ou CLT. Oferece prazos facilitados e taxas competitivas com agilidade na aprovação para quem está na ativa.</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
+
         </div>
+
     </section>
 
-    <footer style="background-color: #0a192f; color: white; padding: 60px 0;">
-        <div class="container text-center">
-            <h4 class="fw-bold mb-4">Consig Online - Anderson Silva</h4>
-            <p class="small mb-1 opacity-75">Atendimento: Segunda a Sexta, das 08h às 20h</p>
-            <p class="small mb-4 opacity-75">Contato: (22) 99946-1668</p>
 
-            <div class="footer-nav-links">
-                <a href="#">Consignado</a>
-                <a href="#">Cartão</a>
-                <a href="#">Servidores</a>
-                <a href="#">INSS</a>
-                <a href="#">Refinanciamento</a>
-            </div>
+
+    <footer style="background-color: #0a192f; color: white; padding: 60px 0; border: none;">
+
+        <div class="container text-center">
+
+            <h4 class="fw-bold mb-4">Consig Online - Consultoria Financeira <span class="text-muted fw-light">ONLINE</span></h4>
+
             
-            <hr class="my-4 opacity-25">
+
+            <p class="mb-1" style="font-weight: 600;">Anderson Silva Consultoria</p>
+
+            <p class="small mb-1" style="opacity: 0.8;">Atendimento: Segunda a Sexta, das 08h às 20h</p>
+
+            <p class="small" style="opacity: 0.8;">Contato: (22) 99946-1668</p>
+
+
+
+<div class="footer-nav-links">
+
+    <a href="credito-consignado.html">CRÉDITO CONSIGNADO</a>
+
+    <a href="cartao-consignado.html">CARTÃO CONSIGNADO</a>
+
+    <a href="servidores-militares.html">SERVIDORES E MILITARES</a>
+
+    <a href="inss.html">INSS</a>
+
+    <a href="refinanciamento.html">REFINANCIAMENTO</a>
+
+</div>
+
             
-            <p style="font-size: 11px; color: #7a8a9e; max-width: 800px; margin: 0 auto;">
-                A Consig Online atua como correspondente bancário (Resolução 3.954 BACEN). 
-                Não solicitamos pagamentos antecipados. Taxas variam conforme convênio.
+
+            <hr class="my-4" style="width: 30%; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.15);">
+
+            
+
+            <p style="font-size: 11px; color: #7a8a9e; line-height: 1.6; max-width: 800px; margin: 0 auto 30px auto;">
+
+                A Consig Online atua como correspondente bancário seguindo as normas da Resolução 3.954 do Banco Central. 
+
+                Não somos uma instituição financeira e não solicitamos pagamentos antecipados. 
+
+                As taxas podem variar de acordo com o convênio. Nossas operações são 100% seguras.
+
             </p>
+
+
+
+            <div style="display: flex; flex-direction: column; align-items: center;">
+
+                <span style="font-size: 9px; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;">Publicidade</span>
+
+                <div style="width: 100%; max-width: 728px;">
+
+                    <ins class="adsbygoogle"
+
+                         style="display:inline-block; width:100%; height:90px"
+
+                         data-ad-client="ca-pub-6941311170472131"
+
+                         data-ad-slot="1234567890"
+
+                         data-ad-format="horizontal"
+
+                         data-full-width-responsive="true"></ins>
+
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+                </div>
+
+            </div>
+
         </div>
+
     </footer>
 
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>
