@@ -57,12 +57,22 @@
         .section-title { color: #0a192f; font-weight: 800; position: relative; padding-bottom: 15px; }
         .section-title::after { content: ''; width: 60px; height: 4px; background: #00a8ff; position: absolute; bottom: 0; left: 0; }
     </style>
+
+    <script>
+      if (window.location.pathname.endsWith('/index.html')) {
+        const cleanUrl = window.location.pathname.replace('/index.html', '/');
+        window.history.replaceState({}, document.title, cleanUrl);
+      } else if (window.location.pathname.endsWith('.html')) {
+        const cleanUrl = window.location.pathname.replace('.html', '');
+        window.history.replaceState({}, document.title, cleanUrl);
+      }
+    </script>
 </head>
 <body>
 
     <nav class="navbar navbar-light bg-white shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html" style="color: #0a192f;">
+            <a class="navbar-brand fw-bold" href="/" style="color: #0a192f;">
                 <i class="fas fa-chevron-left me-2 text-primary"></i> CONSIG ONLINE
             </a>
             <div class="d-flex align-items-center">
@@ -119,14 +129,14 @@
             <h4 class="fw-bold mb-4">CONSIG ONLINE</h4>
             <p class="small opacity-50 mb-4">Consultoria Financeira Especializada em Crédito Consignado.<br>Respeito e transparência com quem serve ao Brasil.</p>
             <div class="mb-4">
-                <a href="index.html" class="btn btn-outline-light btn-sm px-4">Voltar ao Início</a>
+                <a href="/" class="btn btn-outline-light btn-sm px-4">Voltar ao Início</a>
             </div>
             <hr class="opacity-25 my-4">
             <p class="small mb-0">© 2024 Todos os direitos reservados. Anderson Silva Consultoria.</p>
         </div>
     </footer>
 
-<section class="py-4 bg-light">
+    <section class="py-4 bg-light">
         <div class="container">
             <div style="display: flex; flex-direction: column; align-items: center;">
                 <span style="font-size: 9px; color: #999; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;">Publicidade</span>
