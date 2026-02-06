@@ -34,6 +34,7 @@
             display: block;
         }
 
+        /* Classe para fazer a logo AKI Capital aparecer em branco no fundo escuro */
         .logo-light {
             filter: brightness(0) invert(1);
             opacity: 0.9;
@@ -54,18 +55,12 @@
         /* --- HERO & GLASS CARD --- */
         .hero-section {
             background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
-            padding: 100px 0;
+            padding: 80px 0;
             position: relative;
-            overflow: hidden;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 10;
         }
         .glass-card {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
             color: white !important;
@@ -78,10 +73,19 @@
             font-weight: 800;
         }
 
-        .hero-section h1.display-4 {
-            font-size: 2.5rem;
-            max-width: 90%;
-        }
+/* Reduz o tamanho do título para não cobrir a imagem */
+.hero-section h1.display-4 {
+    font-size: 2.5rem; /* Ajuste aqui se quiser ainda menor */
+    max-width: 90%;
+}
+
+/* Ajuste na Hero para comportar a imagem absoluta */
+.hero-section {
+    background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden; /* Garante que a foto não saia do limite */
+}
 
         /* A foto do consultor com ajuste na máscara para não cobrir o centro */
         .consultor-img {
@@ -99,28 +103,30 @@
             mask-image: linear-gradient(to left, black 30%, transparent 75%);
         }
 
-        /* --- FOOTER LINKS --- */
-        .footer-nav-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin: 20px 0;
-            padding: 10px 0;
-        }
-        .footer-nav-links a {
-            color: #ffcc00;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 13px;
-            text-transform: uppercase;
-            transition: 0.3s;
-            letter-spacing: 1px;
-        }
-        .footer-nav-links a:hover {
-            color: #ffffff;
-            text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
-        }
+        /* Isso vai deixar os nomes lado a lado e bonitos no rodapé */
+.footer-nav-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 20px 0;
+    padding: 10px 0;
+}
+
+.footer-nav-links a {
+    color: #ffcc00; /* Cor dourada igual aos detalhes do seu site */
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+
+.footer-nav-links a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
+}
 
         /* --- WHATSAPP & BUTTONS --- */
         .btn-premium {
@@ -155,7 +161,7 @@
             text-decoration: none;
         }
 
-        /* --- FLIP CARD --- */
+        /* --- NOVO EFEITO FLIP CARD (VIRAR) --- */
         .card-container {
             perspective: 1000px;
             height: 280px; 
@@ -190,6 +196,10 @@
             transform: rotateY(180deg);
             border-color: #ffcc00;
         }
+        .card-front:hover {
+            border-color: #ffcc00;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
         .icon-box {
             width: 50px;
             height: 50px;
@@ -201,6 +211,13 @@
             border-radius: 12px;
             margin-bottom: 15px;
             font-size: 20px;
+        }
+        .flip-hint {
+            font-size: 10px;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -215,7 +232,7 @@
             <a class="navbar-brand fw-bold" href="#">
                 <span style="color: #0a192f;">CONSIG</span> <span class="text-muted fw-light">ONLINE</span>
             </a>
-            <a href="https://wa.me/5522999461668" class="btn btn-outline-dark rounded-pill px-4 d-none d-md-block">Falar com Consultor</a>
+            <a href="https://wa.me/5522999461668?text=Olá! Vim pelo site e quero fazer uma simulação." class="btn btn-outline-dark rounded-pill px-4 d-none d-md-block">Falar com Consultor</a>
         </div>
     </nav>
 
@@ -227,12 +244,21 @@
             <div class="top-bank-item"><img src="AMIGOZ.png" alt="Amigoz"><span>AMIGOZ</span></div>
             <div class="top-bank-item"><img src="DIGIO.png" alt="Digio"><span>BANCO DIGIO</span></div>
             <div class="top-bank-item"><img src="Itaú.png" alt="Itaú"><span>BANCO ITAÚ</span></div>
+            
             <div class="top-bank-item"><img src="FUTURO.png" alt="Futuro"><span>BANCO FUTURO</span></div>  
             <div class="top-bank-item"><img src="SANTANDER.png" alt="Santander"></div>
             <div class="top-bank-item"><img src="AKI-CAPITAL.png" alt="Aki Capital" class="logo-light"></div>
             <div class="top-bank-item"><img src="AMIGOZ.png" alt="Amigoz"><span>AMIGOZ</span></div>
             <div class="top-bank-item"><img src="DIGIO.png" alt="Digio"><span>BANCO DIGIO</span></div>
             <div class="top-bank-item"><img src="Itaú.png" alt="Itaú"><span>BANCO ITAÚ</span></div>
+
+             <div class="top-bank-item"><img src="FUTURO.png" alt="Futuro"><span>BANCO FUTURO</span></div>  
+            <div class="top-bank-item"><img src="SANTANDER.png" alt="Santander"></div>
+            <div class="top-bank-item"><img src="AKI-CAPITAL.png" alt="Aki Capital" class="logo-light"></div>
+            <div class="top-bank-item"><img src="AMIGOZ.png" alt="Amigoz"><span>AMIGOZ</span></div>
+            <div class="top-bank-item"><img src="DIGIO.png" alt="Digio"><span>BANCO DIGIO</span></div>
+            <div class="top-bank-item"><img src="Itaú.png" alt="Itaú"><span>BANCO ITAÚ</span></div>
+                
         </div>
     </div>
 
@@ -270,56 +296,159 @@
     </div>
 </header>
 
-<section class="py-5 bg-light">
-    <div class="container py-4">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold">Nossas Soluções para Você</h2>
-            <p class="text-muted">Clique nos cards para saber mais detalhes</p>
-            <div style="width: 50px; height: 3px; background: #ffcc00; margin: 15px auto;"></div>
-        </div>
-        
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card-container" onclick="this.classList.toggle('is-flipped')">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <div class="icon-box"><i class="fas fa-file-invoice-dollar"></i></div>
-                            <h5 class="fw-bold">Margem Nova</h5>
-                            <p class="text-muted small">Dinheiro extra para quem ainda tem margem disponível.</p>
-                            <span class="text-muted" style="font-size: 10px;"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+    <section class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Nossas Soluções para Você</h2>
+                <p class="text-muted">Clique nos cards para saber mais detalhes</p>
+                <div style="width: 50px; height: 3px; background: #ffcc00; margin: 15px auto;"></div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card-container" onclick="this.classList.toggle('is-flipped')">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="icon-box"><i class="fas fa-file-invoice-dollar"></i></div>
+                                <h5 class="fw-bold">Margem Nova</h5>
+                                <p class="text-muted small">Dinheiro extra para quem ainda tem margem disponível.</p>
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+                            </div>
+                            <div class="card-back">
+                                <h6 class="fw-bold text-dark mb-3">O que é?</h6>
+                                <p class="small text-muted" style="line-height: 1.4;">É a oportunidade ideal para quem recebeu um aumento de salário ou ainda não utilizou todo o limite permitido. Dinheiro rápido diretamente na conta sem comprometer sua renda.</p>
+                            </div>
                         </div>
-                        <div class="card-back">
-                            <h6 class="fw-bold text-dark mb-3">O que é?</h6>
-                            <p class="small text-muted">Aproveite o aumento do salário ou limite não utilizado para obter dinheiro rápido sem comprometer sua renda.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card-container" onclick="this.classList.toggle('is-flipped')">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="icon-box"><i class="fas fa-exchange-alt"></i></div>
+                                <h5 class="fw-bold">Portabilidade</h5>
+                                <p class="text-muted small">Reduza os juros de sua dívida atual e diminua sua parcela.</p>
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+                            </div>
+                            <div class="card-back">
+                                <h6 class="fw-bold text-dark mb-3">O que é?</h6>
+                                <p class="small text-muted" style="line-height: 1.4;">Cansado de juros altos? Permite que você mude sua dívida de banco. O novo banco oferece condições melhores, reduzindo suas parcelas mensais.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card-container" onclick="this.classList.toggle('is-flipped')">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="icon-box"><i class="fas fa-sync"></i></div>
+                                <h5 class="fw-bold">Refinanciamento</h5>
+                                <p class="text-muted small">Refinancie seu contrato e receba um "troco" em conta.</p>
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+                            </div>
+                            <div class="card-back">
+                                <h6 class="fw-bold text-dark mb-3">O que é?</h6>
+                                <p class="small text-muted" style="line-height: 1.4;">Você renova o contrato atual e a diferença entre o que já pagou e o novo saldo retorna para você como um "troco" em dinheiro, sem aumentar a parcela.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card-container" onclick="this.classList.toggle('is-flipped')">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="icon-box"><i class="fas fa-credit-card"></i></div>
+                                <h5 class="fw-bold">Cartão Consignado</h5>
+                                <p class="text-muted small">Sem anuidade e com as menores taxas do mercado.</p>
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+                            </div>
+                            <div class="card-back">
+                                <h6 class="fw-bold text-dark mb-3">O que é?</h6>
+                                <p class="small text-muted" style="line-height: 1.4;">Funciona como um cartão comum, mas o pagamento mínimo é descontado direto na folha, garantindo taxas muito menores e geralmente sem anuidade.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card-container" onclick="this.classList.toggle('is-flipped')">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="icon-box"><i class="fas fa-piggy-bank"></i></div>
+                                <h5 class="fw-bold">Antecipação FGTS</h5>
+                                <p class="text-muted small">Saque o seu FGTS hoje mesmo sem parcelas mensais.</p>
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+                            </div>
+                            <div class="card-back">
+                                <h6 class="fw-bold text-dark mb-3">O que é?</h6>
+                                <p class="small text-muted" style="line-height: 1.4;">Antecipe as parcelas do Saque-Aniversário e receba agora. Sem boletos mensais: o pagamento é feito anualmente pelo governo do seu saldo FGTS.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card-container" onclick="this.classList.toggle('is-flipped')">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="icon-box"><i class="fas fa-user-tie"></i></div>
+                                <h5 class="fw-bold">Crédito Trabalhador</h5>
+                                <p class="text-muted small">Condições especiais para o setor público e privado.</p>
+                                <span class="flip-hint"><i class="fas fa-sync-alt"></i> Clique para ver mais</span>
+                            </div>
+                            <div class="card-back">
+                                <h6 class="fw-bold text-dark mb-3">O que é?</h6>
+                                <p class="small text-muted" style="line-height: 1.4;">Linha versátil para funcionários públicos ou CLT. Oferece prazos facilitados e taxas competitivas com agilidade na aprovação para quem está na ativa.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
-    </div>
-</section>
-
-<footer style="background-color: #0a192f; color: white; padding: 60px 0; border: none;">
-    <div class="container text-center">
-        <h4 class="fw-bold mb-4">Consig Online - Consultoria Financeira <span class="text-muted fw-light">ONLINE</span></h4>
-        <p class="mb-1" style="font-weight: 600;">Anderson Silva Consultoria</p>
-        <p class="small mb-1" style="opacity: 0.8;">Contato: (22) 99946-1668</p>
-
-        <div class="footer-nav-links">
-            <a href="#">CRÉDITO CONSIGNADO</a>
-            <a href="#">CARTÃO CONSIGNADO</a>
-            <a href="#">INSS</a>
-            <a href="#">REFINANCIAMENTO</a>
         </div>
-        
-        <hr class="my-4" style="width: 30%; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.15);">
-        
-        <p style="font-size: 11px; color: #7a8a9e; line-height: 1.6; max-width: 800px; margin: 0 auto;">
-            A Consig Online atua como correspondente bancário seguindo as normas da Resolução 3.954 do Banco Central. Operações 100% seguras.
-        </p>
-    </div>
-</footer>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <footer style="background-color: #0a192f; color: white; padding: 60px 0; border: none;">
+        <div class="container text-center">
+            <h4 class="fw-bold mb-4">Consig Online - Consultoria Financeira <span class="text-muted fw-light">ONLINE</span></h4>
+            
+            <p class="mb-1" style="font-weight: 600;">Anderson Silva Consultoria</p>
+            <p class="small mb-1" style="opacity: 0.8;">Atendimento: Segunda a Sexta, das 08h às 20h</p>
+            <p class="small" style="opacity: 0.8;">Contato: (22) 99946-1668</p>
+
+<div class="footer-nav-links">
+    <a href="credito-consignado.html">CRÉDITO CONSIGNADO</a>
+    <a href="cartao-consignado.html">CARTÃO CONSIGNADO</a>
+    <a href="servidores-militares.html">SERVIDORES E MILITARES</a>
+    <a href="inss.html">INSS</a>
+    <a href="refinanciamento.html">REFINANCIAMENTO</a>
+</div>
+            
+            <hr class="my-4" style="width: 30%; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.15);">
+            
+            <p style="font-size: 11px; color: #7a8a9e; line-height: 1.6; max-width: 800px; margin: 0 auto 30px auto;">
+                A Consig Online atua como correspondente bancário seguindo as normas da Resolução 3.954 do Banco Central. 
+                Não somos uma instituição financeira e não solicitamos pagamentos antecipados. 
+                As taxas podem variar de acordo com o convênio. Nossas operações são 100% seguras.
+            </p>
+
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <span style="font-size: 9px; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;">Publicidade</span>
+                <div style="width: 100%; max-width: 728px;">
+                    <ins class="adsbygoogle"
+                         style="display:inline-block; width:100%; height:90px"
+                         data-ad-client="ca-pub-6941311170472131"
+                         data-ad-slot="1234567890"
+                         data-ad-format="horizontal"
+                         data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
