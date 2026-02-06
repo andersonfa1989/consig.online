@@ -7,10 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; overflow-x: hidden; }
         
-        /* --- ESTEIRA DE LOGOS --- */
+        /* --- ESTEIRA DE LOGOS (BANCOS) --- */
         .top-bank-slider {
             background: #0a192f; 
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -23,36 +24,58 @@
             align-items: center;
             animation: scroll-top 40s linear infinite;
         }
-        .top-bank-item {
-            display: flex;
-            align-items: center;
-            margin: 0 40px;
-        }
+        .top-bank-item { display: flex; align-items: center; margin: 0 40px; }
         .top-bank-item img { height: 25px; width: auto; }
         .logo-light { filter: brightness(0) invert(1); opacity: 0.9; }
-        .top-bank-item span {
-            color: white; font-size: 13px; font-weight: 700;
-            margin-left: 10px; letter-spacing: 1px;
-        }
+        .top-bank-item span { color: white; font-size: 13px; font-weight: 700; margin-left: 10px; letter-spacing: 1px; }
+        
         @keyframes scroll-top {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
 
-        /* --- HERO SECTION RESPONSIVA --- */
+        /* --- HERO SECTION (A MÁGICA DO MOBILE VS DESKTOP) --- */
         .hero-section {
+            background-color: #0a192f;
+            padding: 80px 0;
             position: relative;
-            background: linear-gradient(90deg, #0a192f 35%, rgba(10, 25, 47, 0.8) 60%, transparent 100%), 
-                        url('consultor-consignado.png');
-            background-size: cover;
-            background-position: center right;
-            padding: 100px 0;
+            overflow: hidden;
             min-height: 600px;
             display: flex;
             align-items: center;
-            overflow: hidden;
         }
 
+        /* CONFIGURAÇÃO PARA CELULAR (Mobile) */
+        @media (max-width: 991px) {
+            .hero-section {
+                /* No celular, a imagem vira fundo com um degradê para o texto não sumir */
+                background: linear-gradient(180deg, rgba(10, 25, 47, 0.95) 30%, rgba(10, 25, 47, 0.7) 100%), 
+                            url('consultor-consignado.png');
+                background-size: cover;
+                background-position: 80% center;
+                text-align: center;
+                padding: 50px 0;
+            }
+            .hero-section h1.display-4 { font-size: 2.2rem; }
+            .glass-card { margin: 40px auto 0 auto !important; }
+            .security-tag { justify-content: center !important; }
+            .btn-premium { width: 100%; }
+        }
+
+        /* CONFIGURAÇÃO PARA COMPUTADOR (Desktop) */
+        @media (min-width: 992px) {
+            .consultor-img-desktop {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                height: 95%; /* Ajuste a altura conforme necessário */
+                z-index: 1;
+                pointer-events: none;
+            }
+            .hero-content { position: relative; z-index: 10; }
+        }
+
+        /* --- ESTILOS VISUAIS --- */
         .text-gradient {
             background: linear-gradient(90deg, #ffcc00, #ffae00);
             -webkit-background-clip: text;
@@ -69,32 +92,14 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
-        /* AJUSTE MOBILE */
-        @media (max-width: 991px) {
-            .hero-section {
-                background: linear-gradient(180deg, rgba(10, 25, 47, 0.95) 40%, rgba(10, 25, 47, 0.6) 100%), 
-                            url('consultor-consignado.png');
-                background-position: 75% center;
-                text-align: center;
-                padding: 60px 0;
-            }
-            .hero-section h1.display-4 { font-size: 2.3rem; }
-            .security-tag { justify-content: center !important; }
-            .glass-card { margin: 40px auto 0 auto !important; }
-        }
-
-        /* --- WHATSAPP & BOTÕES --- */
         .btn-premium {
             background: linear-gradient(90deg, #25d366, #128c7e);
             border: none; color: white; transition: all 0.3s ease;
             font-weight: 600; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
         }
         .btn-premium:hover { transform: translateY(-3px); color: white; box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4); }
-        
-        .security-tag {
-            font-size: 13px; margin-bottom: 8px; display: flex; 
-            align-items: center; color: #fff; opacity: 0.9;
-        }
+
+        .security-tag { font-size: 13px; margin-bottom: 8px; display: flex; align-items: center; color: white; opacity: 0.9; }
 
         .whatsapp-float {
             position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px;
@@ -104,7 +109,7 @@
             text-decoration: none;
         }
 
-        /* --- FLIP CARDS --- */
+        /* --- CARDS FLIP --- */
         .card-container { perspective: 1000px; height: 280px; cursor: pointer; }
         .card-inner {
             position: relative; width: 100%; height: 100%;
@@ -114,9 +119,9 @@
         .card-container.is-flipped .card-inner { transform: rotateY(180deg); }
         .card-front, .card-back {
             position: absolute; width: 100%; height: 100%;
-            -webkit-backface-visibility: hidden; backface-visibility: hidden;
-            border-radius: 15px; padding: 30px; border: 1px solid #eee;
-            background: white; display: flex; flex-direction: column; justify-content: center;
+            backface-visibility: hidden; border-radius: 15px; padding: 30px; 
+            border: 1px solid #eee; background: white; display: flex; 
+            flex-direction: column; justify-content: center;
         }
         .card-back { background: #fdfdfd; transform: rotateY(180deg); border-color: #ffcc00; }
         .icon-box {
@@ -124,10 +129,8 @@
             display: flex; align-items: center; justify-content: center;
             border-radius: 12px; margin-bottom: 15px; font-size: 20px;
         }
-
         .footer-nav-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin: 25px 0; }
-        .footer-nav-links a { color: #ffcc00; text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; transition: 0.3s; }
-        .footer-nav-links a:hover { color: white; }
+        .footer-nav-links a { color: #ffcc00; text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; }
     </style>
 </head>
 <body>
@@ -163,7 +166,9 @@
     </div>
 
     <header class="hero-section text-white">
-        <div class="container" style="position: relative; z-index: 10;">
+        <img src="consultor-consignado.png" alt="Consultor" class="consultor-img-desktop d-none d-lg-block">
+        
+        <div class="container hero-content">
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <span class="badge rounded-pill bg-warning text-dark px-3 py-2 mb-3 fw-bold">
@@ -173,10 +178,10 @@
                     <p class="lead mb-4 opacity-75">Sem consulta ao SPC/Serasa. Desconto direto na folha para Aposentados e Pensionistas.</p>
                     
                     <div class="d-grid gap-2 d-md-flex flex-column">
-                        <div class="security-tag" style="justify-content: flex-start;">
+                        <div class="security-tag">
                             <i class="fas fa-shield-alt text-warning me-2"></i> Site Seguro | <strong>Conexão Criptografada</strong>
                         </div>
-                        <a href="https://wa.me/5522999461668" class="btn btn-premium btn-lg rounded-pill px-5 py-3 shadow w-fit">
+                        <a href="https://wa.me/5522999461668" class="btn btn-premium btn-lg rounded-pill px-5 py-3 shadow">
                             <i class="fab fa-whatsapp me-2"></i> SIMULAR AGORA
                         </a>
                     </div>
@@ -185,10 +190,10 @@
                 <div class="col-lg-6">
                     <div class="glass-card p-4 shadow-lg" style="max-width: 320px; margin-left: auto;">
                         <h5 class="fw-bold mb-3 text-center">Vantagens Exclusivas</h5>
-                        <ul class="list-unstyled mb-0 small">
+                        <ul class="list-unstyled mb-0 small text-start">
                             <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i> Taxas a partir de 1,20% a.m.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i> Sem taxas escondidas</li>
                             <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i> 100% Online e Seguro</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i> Sem taxas antecipadas</li>
                             <li><i class="fas fa-check-circle text-warning me-2"></i> Prazo de até 96 meses</li>
                         </ul>
                     </div>
@@ -200,7 +205,7 @@
     <section class="py-5 bg-light">
         <div class="container py-4">
             <div class="text-center mb-5">
-                <h2 class="fw-bold">Nossas Soluções para Você</h2>
+                <h2 class="fw-bold">Nossas Soluções</h2>
                 <div style="width: 50px; height: 3px; background: #ffcc00; margin: 15px auto;"></div>
             </div>
             
@@ -211,12 +216,11 @@
                             <div class="card-front">
                                 <div class="icon-box"><i class="fas fa-file-invoice-dollar"></i></div>
                                 <h5 class="fw-bold">Margem Nova</h5>
-                                <p class="text-muted small">Dinheiro extra para quem ainda tem margem disponível.</p>
-                                <span class="text-warning small mt-2">Clique para saber mais</span>
+                                <p class="text-muted small">Crédito extra para quem tem margem livre.</p>
                             </div>
                             <div class="card-back">
-                                <h6 class="fw-bold">Como funciona?</h6>
-                                <p class="small text-muted">Aproveite o aumento de salário para receber dinheiro rápido na conta sem comprometer sua renda mensal.</p>
+                                <h6 class="fw-bold">Margem Nova</h6>
+                                <p class="small text-muted">Aproveite o aumento salarial para crédito imediato na sua conta.</p>
                             </div>
                         </div>
                     </div>
@@ -227,12 +231,11 @@
                             <div class="card-front">
                                 <div class="icon-box"><i class="fas fa-exchange-alt"></i></div>
                                 <h5 class="fw-bold">Portabilidade</h5>
-                                <p class="text-muted small">Reduza os juros e diminua sua parcela atual.</p>
-                                <span class="text-warning small mt-2">Clique para saber mais</span>
+                                <p class="text-muted small">Reduza juros e diminua sua parcela.</p>
                             </div>
                             <div class="card-back">
-                                <h6 class="fw-bold">Vantagem</h6>
-                                <p class="small text-muted">Mudamos sua dívida para um banco com taxas melhores, reduzindo suas parcelas ou liberando troco.</p>
+                                <h6 class="fw-bold">Portabilidade</h6>
+                                <p class="small text-muted">Traga seu contrato para juros menores e economize mensalmente.</p>
                             </div>
                         </div>
                     </div>
@@ -243,12 +246,11 @@
                             <div class="card-front">
                                 <div class="icon-box"><i class="fas fa-sync"></i></div>
                                 <h5 class="fw-bold">Refinanciamento</h5>
-                                <p class="text-muted small">Renove seu contrato e receba um "troco" em dinheiro.</p>
-                                <span class="text-warning small mt-2">Clique para saber mais</span>
+                                <p class="text-muted small">Renove seu contrato e receba um troco.</p>
                             </div>
                             <div class="card-back">
-                                <h6 class="fw-bold">Benefício</h6>
-                                <p class="small text-muted">Mantenha a mesma parcela e receba em dinheiro a parte do contrato que você já pagou.</p>
+                                <h6 class="fw-bold">Refinanciamento</h6>
+                                <p class="small text-muted">Refaça seu empréstimo e libere fôlego financeiro agora.</p>
                             </div>
                         </div>
                     </div>
@@ -259,11 +261,11 @@
                             <div class="card-front">
                                 <div class="icon-box"><i class="fas fa-credit-card"></i></div>
                                 <h5 class="fw-bold">Cartão Consignado</h5>
-                                <p class="text-muted small">Sem anuidade e com as menores taxas do mercado.</p>
+                                <p class="text-muted small">Sem anuidade e taxas exclusivas.</p>
                             </div>
                             <div class="card-back">
-                                <h6 class="fw-bold">Exclusivo</h6>
-                                <p class="small text-muted">Cartão com limite para compras e saques, com desconto do mínimo direto na folha de pagamento.</p>
+                                <h6 class="fw-bold">Cartão RMC/RCC</h6>
+                                <p class="small text-muted">Limite para saques e compras com desconto direto em folha.</p>
                             </div>
                         </div>
                     </div>
@@ -274,11 +276,11 @@
                             <div class="card-front">
                                 <div class="icon-box"><i class="fas fa-piggy-bank"></i></div>
                                 <h5 class="fw-bold">Antecipação FGTS</h5>
-                                <p class="text-muted small">Saque o seu FGTS hoje mesmo sem boletos mensais.</p>
+                                <p class="text-muted small">Saque seu saldo sem parcelas mensais.</p>
                             </div>
                             <div class="card-back">
-                                <h6 class="fw-bold">Agilidade</h6>
-                                <p class="small text-muted">Antecipe até 10 anos do seu Saque-Aniversário e receba o dinheiro em poucas horas.</p>
+                                <h6 class="fw-bold">Saque FGTS</h6>
+                                <p class="small text-muted">Antecipe até 10 anos do saque-aniversário com taxas baixas.</p>
                             </div>
                         </div>
                     </div>
@@ -287,13 +289,13 @@
                     <div class="card-container" onclick="this.classList.toggle('is-flipped')">
                         <div class="card-inner">
                             <div class="card-front">
-                                <div class="icon-box"><i class="fas fa-user-tie"></i></div>
-                                <h5 class="fw-bold">Crédito Trabalhador</h5>
-                                <p class="text-muted small">Condições especiais para o setor público e privado.</p>
+                                <div class="icon-box"><i class="fas fa-landmark"></i></div>
+                                <h5 class="fw-bold">Crédito SIAPE</h5>
+                                <p class="text-muted small">As melhores taxas para Servidor Federal.</p>
                             </div>
                             <div class="card-back">
-                                <h6 class="fw-bold">Facilidade</h6>
-                                <p class="small text-muted">Linhas de crédito sob medida para funcionários ativos com aprovação simplificada.</p>
+                                <h6 class="fw-bold">Público SIAPE</h6>
+                                <p class="small text-muted">Linha de crédito exclusiva com prazos estendidos para federais.</p>
                             </div>
                         </div>
                     </div>
@@ -304,31 +306,18 @@
 
     <footer style="background-color: #0a192f; color: white; padding: 60px 0;">
         <div class="container text-center">
-            <h4 class="fw-bold mb-4">Consig Online - Consultoria Financeira <span class="text-muted fw-light">ONLINE</span></h4>
-            <p class="mb-1" style="font-weight: 600;">Anderson Silva Consultoria</p>
-            <p class="small mb-1">Atendimento: Seg a Sex, 08h às 20h</p>
-            <p class="small mb-4">Contato: (22) 99946-1668</p>
-
+            <h4 class="fw-bold">Consig Online</h4>
+            <p class="small opacity-75">Anderson Silva Consultoria | (22) 99946-1668</p>
             <div class="footer-nav-links">
-                <a href="#">CRÉDITO CONSIGNADO</a>
-                <a href="#">CARTÃO CONSIGNADO</a>
-                <a href="#">SERVIDORES E MILITARES</a>
+                <a href="#">CONSIGNADO</a>
+                <a href="#">CARTÃO</a>
                 <a href="#">INSS</a>
-                <a href="#">REFINANCIAMENTO</a>
+                <a href="#">FGTS</a>
             </div>
-            
-            <hr class="my-4" style="width: 30%; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.15);">
-            
-            <p style="font-size: 11px; color: #7a8a9e; line-height: 1.6; max-width: 800px; margin: 0 auto 30px auto;">
-                A Consig Online atua como correspondente bancário (Resolução 3.954 BACEN). Não somos instituição financeira. 
-                Não solicitamos pagamentos antecipados. As taxas variam conforme o convênio. 100% Seguro.
+            <p style="font-size: 10px; color: #7a8a9e; max-width: 800px; margin: 30px auto 0 auto;">
+                Atuamos como correspondente bancário (Res. 3.954 BACEN). Não solicitamos pagamentos antecipados. 
+                As taxas e prazos variam conforme o convênio e análise de crédito. 100% Online e Seguro.
             </p>
-
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <span style="font-size: 9px; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;">Publicidade</span>
-                <div style="width: 100%; max-width: 728px; height: 90px; background: rgba(255,255,255,0.03); border: 1px dashed #222;">
-                    </div>
-            </div>
         </div>
     </footer>
 
