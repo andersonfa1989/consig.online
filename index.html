@@ -73,28 +73,26 @@
             font-weight: 800;
         }
 
-/* Ajuste na Hero para comportar a imagem absoluta */
-.hero-section {
-    background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
-    padding: 100px 0;
-    position: relative;
-    overflow: hidden; /* Garante que a foto não saia do limite */
+/* Reduz o tamanho do título para não cobrir a imagem */
+.hero-section h1.display-4 {
+    font-size: 2.5rem; /* Ajuste aqui se quiser ainda menor */
+    max-width: 90%;
 }
 
-/* A foto do consultor com o efeito de sumir (esfumaçar) */
+/* A foto do consultor com ajuste na máscara para aparecer mais o rosto */
 .consultor-img {
     position: absolute;
     top: 0;
     right: 0;
     height: 100%;
-    width: 50%; /* Ocupa metade da tela à direita */
-    background-image: url('consultor-consignado.png');
+    width: 55%; 
+    background-image: url('PHOTO-2025-11-06-14-22-04.jpg'); /* Nome do arquivo original */
     background-size: cover;
-    background-position: center right;
+    background-position: center top;
     z-index: 1;
-    /* Esse é o truque do esfumaçado: */
-    -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
-    mask-image: linear-gradient(to left, black 60%, transparent 100%);
+    /* Máscara ajustada: o preto (visível) começa mais à direita para liberar o rosto */
+    -webkit-mask-image: linear-gradient(to left, black 45%, transparent 100%);
+    mask-image: linear-gradient(to left, black 45%, transparent 100%);
 }
 
 /* Garante que o texto fique acima da foto */
