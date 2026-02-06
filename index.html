@@ -73,26 +73,34 @@
             font-weight: 800;
         }
 
-        /* Estilo para a imagem com efeito esfumaçado */
-.hero-image-container {
+/* Ajuste na Hero para comportar a imagem absoluta */
+.hero-section {
+    background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+    padding: 100px 0;
     position: relative;
-    height: 100%;
-    min-height: 400px;
-    background: url('consultor-consignado.png') no-repeat center right;
-    background-size: contain;
+    overflow: hidden; /* Garante que a foto não saia do limite */
 }
 
-/* O "Esfumaçado" vindo da esquerda (azul) para a direita (imagem) */
-.hero-image-container::before {
-    content: '';
+/* A foto do consultor com o efeito de sumir (esfumaçar) */
+.consultor-img {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    right: 0;
     height: 100%;
-    /* Ajuste as cores abaixo para bater exatamente com o seu fundo azul */
-    background: linear-gradient(90deg, #0a192f 0%, #0a192f 15%, transparent 100%);
-    pointer-events: none;
+    width: 50%; /* Ocupa metade da tela à direita */
+    background-image: url('consultor-consignado.png');
+    background-size: cover;
+    background-position: center right;
+    z-index: 1;
+    /* Esse é o truque do esfumaçado: */
+    -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
+    mask-image: linear-gradient(to left, black 60%, transparent 100%);
+}
+
+/* Garante que o texto fique acima da foto */
+.hero-content {
+    position: relative;
+    z-index: 2;
 }
 
         /* Isso vai deixar os nomes lado a lado e bonitos no rodapé */
